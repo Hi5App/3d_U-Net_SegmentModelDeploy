@@ -1,8 +1,13 @@
 version: '3'
 services:
   inferenceserver:
-    build: .
+    image: 3dunet-inferenceserver:v1
     ports:
-      - "5000:5000"
+      - "61234:5000"
     volumes:
-      - ./imagepath:/app/data/input
+      - /Dev/inferenceimagepath:/app/data/input
+    networks:
+      - braintell
+networks:
+  braintell:
+    external: true
